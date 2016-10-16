@@ -1,0 +1,35 @@
+{
+  "name": "machete",
+  "version": "0.0.1",
+  "description": "The Machete HTML DOM Game Framework",
+  "main": "src/machete.js",
+  "scripts": {
+    "typings": "typings",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Technohacker/machete.git"
+  },
+  "keywords": [
+    "html",
+    "js",
+    "dom",
+    "game-engine"
+  ],
+  "author": "Technohacker",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Technohacker/machete/issues"
+  },
+  "homepage": "https://github.com/Technohacker/machete#readme",
+  "dependencies": {
+    "live-server": "^1.1.0",
+    "window.requestanimationframe": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-latest": "^6.16.0"
+  }
+}
