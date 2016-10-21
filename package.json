@@ -4,9 +4,10 @@
   "description": "The Machete HTML DOM Game Framework",
   "main": "src/machete.js",
   "scripts": {
-    "typings": "typings",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server"
+    "start": "live-server",
+    "gulp": "gulp",
+    "gulp:w": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,10 @@
     "window.requestanimationframe": "^1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.16.0",
-    "babel-preset-latest": "^6.16.0"
+    "babel-preset-latest": "^6.16.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^2.0.0"
   }
 }
