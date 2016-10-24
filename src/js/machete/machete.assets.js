@@ -7,18 +7,19 @@
             this.assetList = assetList;
         },
         start() {
-            return new Promise(function (resolve, reject) {
+            return new Promise((resolve, reject) => {
                 let loadedCount = 0;
                 let onLoadHandler = ((resolve, reject) => {
                     this.assetCache[assetInfo.name] = load;
                     loadedCount += 1;
                     if (loadedCount === this.assetList.length) {
-                        resolve(this.assetCache);
+                        resolve(this.get);
                     }
                 });
 
-                for (var assetInfo in this.assetList) {
-                    if (object.hasOwnProperty(assetInfo)) {
+                for (var assetInfo of this.assetList) {
+                    console.log(assetInfo);
+                    if (this.assetList.hasOwnProperty(assetInfo)) {
                         switch (assetInfo.type) {
                         case "image":
                             var load = new Image();
