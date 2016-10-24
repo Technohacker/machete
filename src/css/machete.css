@@ -1,0 +1,17 @@
+.machete-stage
+{
+    position: relative;
+
+    margin: -8px;
+}
+
+.background
+{
+    position: absolute;
+    z-index: -999;
+    top: 0;
+    left: 0;
+
+    width: inherit;
+    height: inherit;
+}
