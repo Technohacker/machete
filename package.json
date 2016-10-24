@@ -5,9 +5,8 @@
   "main": "src/machete.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server",
-    "gulp": "gulp",
-    "gulp:w": "gulp watch"
+    "start": "concurrently \"gulp\" \"live-server\"",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -26,10 +25,11 @@
   },
   "homepage": "https://github.com/Technohacker/machete#readme",
   "dependencies": {
-    "live-server": "^1.1.0",
+    "concurrently": "^3.1.0",
     "window.requestanimationframe": "^1.0.0"
   },
   "devDependencies": {
+    "live-server": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-uglify": "^2.0.0"
