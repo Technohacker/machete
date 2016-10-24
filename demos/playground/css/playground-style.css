@@ -13,18 +13,6 @@
     background-color: #222;
 }
 
-.fps-wrapper
-{
-    font-size: 1.5rem;
-
-    position: fixed;
-
-    width: 90px;
-    height: 20px;
-
-    color: yellow;
-}
-
 .l1
 {
     z-index: -920;
