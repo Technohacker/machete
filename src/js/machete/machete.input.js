@@ -37,19 +37,42 @@
                 Z: 90
             }),
             keyboardEvents: {},
-            onKeyPress(keyCode, listener) {
+            onKeyPress(keyCode, keyDown, keyUp) {
                 if (!this.keyboardEvents[keyCode]) {
-                    this.keyboardEvents[keyCode] = [];
+                    this.keyboardEvents[keyCode] = {
+                        activated: false,
+                        listeners: {
+                            keyDown: [],
+                            keyUp: []
+                        }
+                    };
                 }
-                this.keyboardEvents[keyCode].push(listener);
+                this.keyboardEvents[keyCode].listeners.keyDown.push(keyDown);
+                this.keyboardEvents[keyCode].listeners.keyUp.push(keyUp);
             }
         }
     });
     document.addEventListener("keydown", event => {
-        let currentKeyListeners = Machete.inputManager.keyboard.keyboardEvents[event.which];
-        if (currentKeyListeners) {
-            for (let listener of currentKeyListeners) {
-                listener(event);
+        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.which];
+        if (currentKey) {
+            if (!currentKey.activated) {
+                currentKey.activated = true;
+                for (let keyDown of currentKey.listeners.keyDown) {
+                    keyDown(event);
+                }
+            }
+            return true;
+        }
+        return false;
+    });
+    document.addEventListener("keyup", event => {
+        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.which];
+        if (currentKey) {
+            if (currentKey.activated) {
+                currentKey.activated = false;
+                for (let keyUp of currentKey.listeners.keyUp) {
+                    keyUp(event);
+                }
             }
         }
     });
