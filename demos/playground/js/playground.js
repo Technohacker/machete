@@ -5,29 +5,21 @@
 
     // Game methods
     game.init = (() => {
-        Machete.fpsCounter.init(document.querySelector("#fps"));
-
-        game.player = document.querySelector("#player");
-
-        let keyCodes = Machete.inputManager.keyCodes;
-
-        Machete.inputManager.addListener("keypress", event => {
-            switch (event.which) {
-            case keyCodes.LEFT:
-                game.player
-                break;
-            default:
-
-            }
+        game.player = new Player(document.querySelector("#player"));
+        game.fpsMeter = new FPSMeter({
+            heat: 1,
+            graph: 1,
+            position: "fixed"
         });
     });
 
     game.update = (delta => {
-
+        game.fpsMeter.tick();
+        game.player.update(delta);
     });
 
     game.draw = (delta => {
-        Machete.fpsCounter.tick(delta);
+        game.player.act();
     });
 
     game.start();

@@ -16,14 +16,7 @@
     height: inherit;
 }
 
-.fps-wrapper
+.sprite
 {
-    font-size: 1.5rem;
-
-    position: fixed;
-
-    width: 200px;
-    height: 20px;
-
-    color: yellow;
+    position: absolute;
 }

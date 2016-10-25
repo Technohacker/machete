@@ -1,76 +1,27 @@
+body
+{
+    overflow: hidden;
+}
+
 .machete-stage
 {
     font-family: sans-serif;
 
     z-index: -9999;
 
-    overflow-y: hidden;
-
-    width: 500vw;
-    height: 97.1vh;
+    width: 100vw;
+    height: 100vh;
 
     color: white;
     background-color: #222;
 }
 
-.l1
+#player
 {
-    z-index: -920;
-}
-
-.l2
-{
-    z-index: -910;
-}
-
-.l3
-{
-    z-index: -990;
-}
-
-.building
-{
-    position: absolute;
     bottom: 0;
 
-    box-shadow: 0 0 20px 10px black;
-}
-
-.building.t1
-{
-    left: 200px;
-
-    background-color: teal;
-}
-
-.building.t2
-{
-    left: 350px;
-
-    background-color: lavender;
-}
-
-.building.t3
-{
-    left: 400px;
-
-    background-color: paleturquoise;
-}
-
-.l1 .building.t1
-{
-    width: 200px;
+    width: 100px;
     height: 300px;
-}
 
-.l2 .building.t2
-{
-    width: 100px;
-    height: 500px;
-}
-
-.l3 .building.t3
-{
-    width: 100px;
-    height: 200px;
+    background-color: red;
 }
