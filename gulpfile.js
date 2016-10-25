@@ -1,6 +1,5 @@
 var gulp = require("gulp");
 var concat = require('gulp-concat');
-var babel = require("gulp-babel");
 
 gulp.task('clean', function () {
     return del(['build']);
