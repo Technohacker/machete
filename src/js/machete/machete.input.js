@@ -2,44 +2,45 @@
     'use strict';
     Machete.extend("inputManager", {
         keyboard: {
+            // TODO: Keep multiple key arrays for X-Browser compat
             keyCodes: Object.freeze({
-                LEFT: 37,
-                UP: 38,
-                RIGHT: 39,
-                DOWN: 40,
-                PAGEUP: 33,
-                PAGEDOWN: 34,
-                A: 65,
-                B: 66,
-                C: 67,
-                D: 68,
-                E: 69,
-                F: 70,
-                G: 71,
-                H: 72,
-                I: 73,
-                J: 74,
-                K: 75,
-                L: 76,
-                M: 77,
-                N: 78,
-                O: 79,
-                P: 80,
-                Q: 81,
-                R: 82,
-                S: 83,
-                T: 84,
-                U: 85,
-                V: 86,
-                W: 87,
-                X: 88,
-                Y: 89,
-                Z: 90
+                LEFT: "ArrowLeft",
+                UP: "ArrowUp",
+                RIGHT: "ArrowRight",
+                DOWN: "ArrowDown",
+                PAGEUP: "PageUp",
+                PAGEDOWN: "PageDown",
+                A: "a",
+                B: "b",
+                C: "c",
+                D: "d",
+                E: "e",
+                F: "f",
+                G: "g",
+                H: "h",
+                I: "i",
+                J: "j",
+                K: "k",
+                L: "l",
+                M: "m",
+                N: "n",
+                O: "o",
+                P: "p",
+                Q: "q",
+                R: "r",
+                S: "s",
+                T: "t",
+                U: "u",
+                V: "v",
+                W: "w",
+                X: "x",
+                Y: "y",
+                Z: "z"
             }),
             keyboardEvents: {},
-            onKeyPress(keyCode, keyDown, keyUp) {
-                if (!this.keyboardEvents[keyCode]) {
-                    this.keyboardEvents[keyCode] = {
+            onKeyPress(key, keyDown, keyUp) {
+                if (!this.keyboardEvents[key]) {
+                    this.keyboardEvents[key] = {
                         activated: false,
                         listeners: {
                             keyDown: [],
@@ -47,13 +48,13 @@
                         }
                     };
                 }
-                this.keyboardEvents[keyCode].listeners.keyDown.push(keyDown);
-                this.keyboardEvents[keyCode].listeners.keyUp.push(keyUp);
+                this.keyboardEvents[key].listeners.keyDown.push(keyDown);
+                this.keyboardEvents[key].listeners.keyUp.push(keyUp);
             }
         }
     });
     document.addEventListener("keypress", event => {
-        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.keyCode];
+        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.key];
         if (currentKey) {
             if (!currentKey.activated) {
                 currentKey.activated = true;
@@ -66,7 +67,7 @@
         return false;
     });
     document.addEventListener("keyup", event => {
-        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.keyCode];
+        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.key];
         if (currentKey) {
             if (currentKey.activated) {
                 currentKey.activated = false;
