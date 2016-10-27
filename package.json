@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Technohacker/machete#readme",
   "dependencies": {
+    "box2d.js": "^1.0.0",
     "concurrently": "^3.1.0",
     "window.requestanimationframe": "^1.0.0"
   },
