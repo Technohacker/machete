@@ -5,6 +5,7 @@
         assetCache: {},
         init(assetList) {
             this.assetList = assetList;
+            return this;
         },
         start() {
             return new Promise((resolve, reject) => {
@@ -13,22 +14,26 @@
                     this.assetCache[assetInfo.name] = load;
                     loadedCount += 1;
                     if (loadedCount === this.assetList.length) {
-                        resolve(this.get);
+                        resolve();
                     }
                 });
 
                 for (var assetInfo of this.assetList) {
                     console.log(assetInfo);
-                    if (this.assetList.hasOwnProperty(assetInfo)) {
-                        switch (assetInfo.type) {
-                        case "image":
-                            var load = new Image();
-                            load.onLoad = (() => onLoadHandler(resolve, reject));
-                            load.src = assetInfo.href;
-                            break;
-                        default:
-                            reject(new Error("Unknown Asset Type: " + assetInfo.type));
-                        }
+                    switch (assetInfo.type) {
+                    case "image":
+                        var load = new Image();
+                        load.onLoad = () => onLoadHandler(resolve, reject);
+                        load.src = assetInfo.href;
+                        break;
+                    case "audio":
+                        // TODO: Multiple format support
+                        var load = document.createElement("audio");
+                        load.oncanplaythrough = () => onLoadHandler(resolve, reject);
+                        load.src = assetInfo.href;
+                        break;
+                    default:
+                        reject(new Error("Unknown Asset Type: " + assetInfo.type));
                     }
                 }
             });
