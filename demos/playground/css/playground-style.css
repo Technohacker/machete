@@ -29,7 +29,9 @@ body
 
 #player
 {
-    bottom: 0;
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
 
     width: 100px;
     height: 300px;

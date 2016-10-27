@@ -52,8 +52,8 @@
             }
         }
     });
-    document.addEventListener("keydown", event => {
-        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.which];
+    document.addEventListener("keypress", event => {
+        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.keyCode];
         if (currentKey) {
             if (!currentKey.activated) {
                 currentKey.activated = true;
@@ -66,7 +66,7 @@
         return false;
     });
     document.addEventListener("keyup", event => {
-        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.which];
+        let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.keyCode];
         if (currentKey) {
             if (currentKey.activated) {
                 currentKey.activated = false;
