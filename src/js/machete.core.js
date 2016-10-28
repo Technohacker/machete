@@ -27,7 +27,7 @@
     let Machete = {
         stage: null,
         init(stageElement) {
-            if (!stageElement.className.includes("machete-stage")) {
+            if (!stageElement.classList.contains("machete-stage")) {
                 throw Error("Stage does not have the 'machete-stage' class!");
             }
             this.stage = stageElement;
