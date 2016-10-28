@@ -53,7 +53,7 @@
             }
         }
     });
-    document.addEventListener("keypress", event => {
+    document.addEventListener("keydown", event => {
         let currentKey = Machete.inputManager.keyboard.keyboardEvents[event.key];
         if (currentKey) {
             if (!currentKey.activated) {
