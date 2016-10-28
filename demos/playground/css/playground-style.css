@@ -29,7 +29,7 @@ body
 
 #player
 {
-    position: fixed;
+    position: absolute;
     bottom: 90px;
     left: 50%;
 
