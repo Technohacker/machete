@@ -1,29 +1,31 @@
-(function (window) {
+(function (window, Sprite) {
     'use strict';
-    var Machete = window.Machete;
-    window.Player = function (element) {
-        this.element = element;
-        this.element.style.left = "0px";
-        this.currX = 0;
-        this.dX = 0;
+    let element = document.querySelector("#player");
 
+    window.Player = new Sprite(element, function () {
         let keyCodes = Machete.inputManager.keyboard.keyCodes;
+
+        const DELTA = 3;
+
+        this.delta = {
+            x: 0,
+            y: 0
+        };
+
         Machete.inputManager.keyboard.onKeyPress(keyCodes.LEFT, event => {
-            this.dX += -3;
+            this.delta.x += -DELTA;
         }, event => {
-            this.dX += 3;
-        });
-        Machete.inputManager.keyboard.onKeyPress(keyCodes.RIGHT, event => {
-            this.dX += 3;
-        }, event => {
-            this.dX += -3;
+            this.delta.x += DELTA;
         });
 
-        this.update = delta => {
-            this.currX += this.dX;
-        };
-        this.act = () => {
-            this.element.style.left = this.currX + "px";
-        };
-    }
-}(window));
+        Machete.inputManager.keyboard.onKeyPress(keyCodes.RIGHT, event => {
+            this.delta.x += DELTA;
+        }, event => {
+            this.delta.x += -DELTA;
+        });
+    }, function (delta) {
+        this.moveBy(this.delta);
+    }, function () {
+
+    });
+}(window, window.Machete.sprite.Sprite));

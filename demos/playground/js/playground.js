@@ -1,4 +1,4 @@
-(function (document, Machete, AssetManager, MusicPlayer) {
+(function (window, document, Machete, AssetManager, MusicPlayer, Sprite) {
     'use strict';
     // Game data
     let game = Machete.init(document.querySelector(".machete-stage"));
@@ -22,7 +22,7 @@
                     .play(true);
             });
 
-        game.player = new Player(document.querySelector("#player"));
+        game.player = window.Player;
         game.fpsMeter = new FPSMeter({
             heat: 1,
             graph: 1,
@@ -40,4 +40,4 @@
     });
 
     game.start();
-}(window.document, window.Machete, window.Machete.assetManager, window.Machete.audio.music));
+}(window, window.document, window.Machete, window.Machete.assetManager, window.Machete.audio.music));
