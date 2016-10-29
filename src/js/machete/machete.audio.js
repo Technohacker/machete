@@ -18,6 +18,7 @@
                 }
 
                 track.onended = (event) => {
+                    this.currentIndex += 1;
                     let currTrackObj = this.playlist[this.currentIndex];
                     if (!currTrackObj && shouldLoop) {
                         this.currentIndex = 0;

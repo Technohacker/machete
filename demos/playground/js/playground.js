@@ -23,7 +23,7 @@
                     source: game.assetCache.bgAudio1,
                     speed: 1.0
                 }]);
-                MusicPlayer.play(true);
+                MusicPlayer.play(false);
                 // BUG: VERY crude method of screen changing. FIX IMMEDIATELY!
                 game.scenes.loading.classList.remove("active");
                 game.scenes.mainMenu.classList.add("active");
