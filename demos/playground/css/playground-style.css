@@ -1,3 +1,15 @@
+@keyframes spin
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
 body
 {
     overflow: hidden;
@@ -16,15 +28,23 @@ body
     background-color: #222;
 }
 
-.parallax-background
+.loader
 {
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-    background-image: url('../img/full-bg.png');
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-    background-size: contain;
+    width: 120px;
+    height: 120px;
+    margin-top: -50px;
+    margin-left: -50px;
+
+    animation: spin 2s linear infinite;
+
+    border: 16px solid transparent;
+    border-top: 16px solid red;
+    border-bottom: 16px solid orange;
+    border-radius: 50%;
 }
 
 #player
