@@ -22,18 +22,28 @@
                     // TODO: Add numeric key processing
                 }
             },
-            onKeyPress(key, keyDown, keyUp) {
-                if (!this.keyboardEvents[key]) {
-                    this.keyboardEvents[key] = {
-                        activated: false,
-                        listeners: {
-                            keyDown: [],
-                            keyUp: []
-                        }
-                    };
+            registerInputHandlers(inputHandlerArr) {
+                if (!inputHandlerArr) {
+                    throw Error("No handlers passed to register!");
                 }
-                this.keyboardEvents[key].listeners.keyDown.push(keyDown);
-                this.keyboardEvents[key].listeners.keyUp.push(keyUp);
+                for (let keyHandler of inputHandlerArr) {
+                    let {
+                        key,
+                        keyDown,
+                        keyUp
+                    } = keyHandler;
+                    if (!this.keyboardEvents[key]) {
+                        this.keyboardEvents[key] = {
+                            activated: false,
+                            listeners: {
+                                keyDown: [],
+                                keyUp: []
+                            }
+                        };
+                    }
+                    this.keyboardEvents[key].listeners.keyDown.push(keyDown);
+                    this.keyboardEvents[key].listeners.keyUp.push(keyUp);
+                }
             }
         }
     });
