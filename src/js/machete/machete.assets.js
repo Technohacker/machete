@@ -19,7 +19,6 @@
                 });
 
                 for (var assetInfo of this.assetList) {
-                    console.log(assetInfo);
                     switch (assetInfo.type) {
                     case "image":
                         var load = new Image();
