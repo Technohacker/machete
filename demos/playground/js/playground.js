@@ -1,4 +1,4 @@
-(function (window, document, Machete, AssetManager, MusicPlayer, Sprite) {
+(function (window, document, Machete, AssetManager, MusicPlayer) {
     'use strict';
     // Game data
     let game = Machete.init(document.querySelector(".machete-stage"));
@@ -16,10 +16,10 @@
                     bgAudio1: AssetManager.get("bgAudio1")
                 };
                 MusicPlayer.init([{
-                        source: game.assetCache.bgAudio1,
-                        speed: 1.0
-                    }])
-                    .play(true);
+                    source: game.assetCache.bgAudio1,
+                    speed: 1.0
+                }]);
+                MusicPlayer.play(true);
             });
 
         game.player = window.Player;
