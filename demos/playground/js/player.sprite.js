@@ -2,6 +2,7 @@
     'use strict';
     let element = document.querySelector("#player");
 
+    /*
     window.Player = new Sprite(element, function () {
         let keys = KeyboardInput.keys;
 
@@ -26,4 +27,5 @@
     }, function () {
 
     });
+    */
 }(window, window.Machete.sprite.Sprite, window.Machete.inputManager.keyboard));

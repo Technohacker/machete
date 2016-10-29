@@ -22,7 +22,7 @@
                 MusicPlayer.play(true);
             });
 
-        game.player = window.Player;
+        //game.player = window.Player;
         game.fpsMeter = new FPSMeter({
             heat: 1,
             graph: 1,
@@ -32,11 +32,11 @@
 
     game.update = (delta => {
         game.fpsMeter.tick();
-        game.player.update(delta);
+        //game.player.update(delta);
     });
 
     game.draw = (delta => {
-        game.player.act();
+        //game.player.act();
     });
 
     game.start();

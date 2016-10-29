@@ -16,6 +16,14 @@
     height: inherit;
 }
 
+.scene
+{
+    position: absolute;
+
+    width: inherit;
+    height: inherit;
+}
+
 .sprite
 {
     position: absolute;
