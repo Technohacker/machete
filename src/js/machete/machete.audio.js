@@ -4,6 +4,7 @@
         music: {
             currentIndex: 0,
             playlist: [],
+            isPlaying: false,
             init(playlist) {
                 this.playlist = playlist;
                 return this;
@@ -21,15 +22,22 @@
                     if (!currTrackObj && shouldLoop) {
                         this.currentIndex = 0;
                         currTrackObj = this.playlist[this.currentIndex];
+                        this.isPlaying = true;
                     } else if (currTrackObj) {
                         track = currTrackObj.source;
                         track.playbackRate = currTrackObj.speed;
+                        this.isPlaying = true;
                         track.play();
                     } else {
                         this.pause();
                     }
                 };
                 track.play();
+            },
+            pause() {
+                console.log("Pause");
+                this.isPlaying = false;
+                this.playlist[this.currentIndex].source.pause();
             }
         }
     });
