@@ -5,6 +5,10 @@
 
     // Game methods
     game.init = (() => {
+        game.scenes = {
+            loading: document.querySelector("#loading"),
+            mainMenu: document.querySelector("#main-menu")
+        };
         AssetManager.init([{
                 type: "audio",
                 name: "bgAudio1",
@@ -20,6 +24,9 @@
                     speed: 1.0
                 }]);
                 MusicPlayer.play(true);
+                // BUG: VERY crude method of screen changing. FIX IMMEDIATELY!
+                game.scenes.loading.classList.remove("active");
+                game.scenes.mainMenu.classList.add("active");
             });
 
         //game.player = window.Player;

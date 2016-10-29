@@ -8,8 +8,12 @@
     </head>
     <body>
         <div class="machete-stage">
-            <div class="scene">
-                <div class="loader"></div>
+            <div id="loading" class="active scene">
+                <div class="loader gpu-accel"></div>
+            </div>
+            <div id="main-menu" class="scene">
+                <h1>Playground!</h1>
+                <button id="play" type="button" name="play">PLAY</button>
             </div>
         </div>
         <script src="../../build/js/machete.js" charset="utf-8"></script>

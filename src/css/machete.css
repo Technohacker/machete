@@ -16,9 +16,16 @@
     height: inherit;
 }
 
+.active.scene
+{
+    display: block;
+}
+
 .scene
 {
     position: absolute;
+
+    display: none;
 
     width: inherit;
     height: inherit;
