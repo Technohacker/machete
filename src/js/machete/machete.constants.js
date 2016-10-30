@@ -3,6 +3,7 @@
     Machete.extend("constants", {
         input: {
             keys: Object.freeze({
+                SPACE: " ",
                 LEFT: "ArrowLeft",
                 UP: "ArrowUp",
                 RIGHT: "ArrowRight",

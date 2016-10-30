@@ -48,6 +48,7 @@
         }
     });
     document.addEventListener("keydown", event => {
+        event.preventDefault();
         let currentKey = Machete.inputManager.keyboard.getCurrentKey(event),
             keyObj = Machete.inputManager.keyboard.keyboardEvents[currentKey];
         if (keyObj) {

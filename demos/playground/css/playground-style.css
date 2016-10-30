@@ -103,7 +103,7 @@ h6
 #player
 {
     position: absolute;
-    bottom: 90px;
+    top: 400px;
     left: 50%;
 
     width: 100px;

@@ -3,15 +3,24 @@
     Machete.extend("scenes", {
         currentScene: null,
         scenes: {},
-        init(scenes, activeScene) {
-            this.scenes = scenes;
-            this.currentScene = this.scenes[activeScene];
-            this.currentScene.classList.add("active");
+        registerScene(sceneName, sceneObject) {
+            this.scenes[sceneName] = sceneObject;
         },
         setActiveScene(sceneName) {
-            this.currentScene.classList.remove("active");
-            this.currentScene = this.scenes[sceneName];
-            this.currentScene.classList.add("active");
+            if (!this.currentScene) {
+                this.currentScene = this.scenes[sceneName];
+            } else {
+                this.currentScene.element.classList.remove("active");
+                this.currentScene = this.scenes[sceneName];
+            }
+            this.currentScene.init();
+            this.currentScene.element.classList.add("active");
+        },
+        updateScene(delta) {
+            this.currentScene.update(delta);
+        },
+        drawScene() {
+            this.currentScene.draw();
         }
     });
 }(window.Machete));

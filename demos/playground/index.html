@@ -8,65 +8,74 @@
     </head>
     <body>
         <div class="machete-stage">
+            <div class="background backstage">
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+                <div class="blue tile"></div>
+            </div>
             <div id="loading" class="scene">
-                <div class="loader gpu-accel"></div>
+                <div class="loader"></div>
             </div>
             <div id="main-menu" class="scene">
-                <div class="background">
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                </div>
                 <h1>Playground!</h1>
                 <button id="play" type="button" name="play">PLAY</button>
             </div>
+            <div id="level1" class="scene">
+                <div id="player"></div>
+            </div>
         </div>
+        <!-- Libraries -->
         <script src="../../build/js/machete.js" charset="utf-8"></script>
         <script src="libs/fpsmeter.min.js" charset="utf-8"></script>
         <script src="libs/velocity.min.js" charset="utf-8"></script>
+        <!-- Sprites -->
         <script src="js/player.sprite.js" charset="utf-8"></script>
+        <!-- Scenes -->
+        <script src="js/mainMenu.js" charset="utf-8"></script>
+        <script src="js/level1.js" charset="utf-8"></script>
+        <!-- Orchestrator -->
         <script src="js/playground.js" charset="utf-8"></script>
     </body>
 </html>
