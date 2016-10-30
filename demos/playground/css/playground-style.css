@@ -104,10 +104,10 @@ h6
 {
     position: absolute;
     top: 400px;
-    left: 50%;
+    left: 80px;
 
-    width: 100px;
-    height: 300px;
+    width: 20px;
+    height: 20px;
 
     background-color: red;
 }
@@ -145,4 +145,16 @@ h6
     height: 4rem;
 
     text-align: center;
+}
+
+#ground
+{
+    position: absolute;
+    top: 610px;
+    left: 400px;
+
+    width: 810px;
+    height: 60px;
+
+    background-color: gray;
 }
