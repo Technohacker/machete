@@ -30,7 +30,7 @@
                         this.isPlaying = true;
                         track.play();
                     } else {
-                        this.pause();
+                        this.isPlaying = false;
                     }
                 };
                 track.play();
