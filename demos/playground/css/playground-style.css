@@ -12,7 +12,8 @@
 
 @keyframes pulsate
 {
-    0%
+    0%,
+    100%
     {
         opacity: .25;
     }
@@ -20,10 +21,11 @@
     {
         opacity: .5;
     }
-    100%
-    {
-        opacity: .25;
-    }
+}
+
+.pulsate
+{
+    animation: pulsate 10s ease-out infinite;
 }
 
 body
@@ -70,10 +72,7 @@ h6
     height: 10vw;
     margin: 10px;
 
-    transform: translateZ(0) translate3d(0, 0, 0);
-    animation: pulsate 5s linear infinite;
-
-    backface-visibility: hidden;
+    opacity: .25;
 }
 
 .blue.tile
@@ -93,7 +92,7 @@ h6
     margin-top: -50px;
     margin-left: -50px;
 
-    animation: pulsate 2s linear infinite;
+    animation: spin 2s linear infinite;
 
     border: 16px solid transparent;
     border-top: 16px solid red;
@@ -127,17 +126,13 @@ h6
     margin-left: -150px;
     padding: 20px;
 
-    color: white;
     border: none;
-    background-color: green;
-    box-shadow: 10px 10px 0 black;
+    background-color: #0ff;
+    box-shadow: 0 0 20px black;
 }
 
 #play:active
 {
-    margin-top: -30px;
-    margin-left: -140px;
-
     box-shadow: none;
 }
 

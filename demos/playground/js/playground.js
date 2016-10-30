@@ -5,6 +5,22 @@
 
     // Game methods
     game.init = (() => {
+        // Way to randomly apply the pulsation effect
+        game.bgTiles = document.querySelectorAll(".background > .tile");
+
+        let randomPulsate = () => {
+            for (var i = 0; i < game.bgTiles.length; i += 1) {
+                game.bgTiles[i].classList.remove("pulsate");
+            }
+            for (var i = 0; i < 20; i += 1) {
+                game.bgTiles[Math.floor(Math.random() * game.bgTiles.length)].classList.add("pulsate");
+            }
+        };
+
+        randomPulsate();
+
+        window.setInterval(randomPulsate, 10000);
+
         game.fpsMeter = new FPSMeter({
             heat: 1,
             graph: 1,
