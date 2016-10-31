@@ -159,7 +159,7 @@ h6
 #wall1
 {
     position: absolute;
-    bottom: -2vh;
+    bottom: 0vh;
     left: 0;
 
     width: 100vw;
