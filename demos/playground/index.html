@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Machete Playground</title>
+        <link rel="stylesheet" href="../../node_modules/normalizecss/normalize.css"/>
         <link rel="stylesheet" href="../../build/css/machete.css" media="screen"/>
         <link rel="stylesheet" href="css/playground-style.css" media="screen"/>
+        <meta name="viewport" content="width=device-width maximum-scale=1"/>
     </head>
     <body>
         <div class="machete-stage">
@@ -64,10 +66,11 @@
             </div>
             <div id="level1" class="scene">
                 <div class="background">
-                    <h3>Use the arrow keys to move</h3>
+                    <h3>Move using the left and right arrow keys</h3>
+                    <h3>Jump using space</h3>
                 </div>
                 <div id="player"></div>
-                <div id="ground"></div>
+                <div id="wall1"></div>
             </div>
         </div>
         <!-- Libraries -->
@@ -75,9 +78,6 @@
         <script src="libs/fpsmeter.min.js" charset="utf-8"></script>
         <script src="libs/velocity.min.js" charset="utf-8"></script>
         <script src="../../build/js/machete.js" charset="utf-8"></script>
-        <script src="js/matter.dom.js" charset="utf-8"></script>
-        <!-- Sprites -->
-        <script src="js/player.sprite.js" charset="utf-8"></script>
         <!-- Scenes -->
         <script src="js/mainMenu.js" charset="utf-8"></script>
         <script src="js/level1.js" charset="utf-8"></script>

@@ -13,8 +13,8 @@
                 this.currentScene.element.classList.remove("active");
                 this.currentScene = this.scenes[sceneName];
             }
-            this.currentScene.init();
             this.currentScene.element.classList.add("active");
+            this.currentScene.init();
         },
         updateScene(delta) {
             this.currentScene.update(delta);

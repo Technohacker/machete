@@ -48,7 +48,7 @@
                         source: game.assetCache.bgAudio1,
                         speed: 1.0
                     }]);
-                    //MusicPlayer.play(false);
+                    MusicPlayer.play(false);
 
                     //TODO: Simulated delay for testing, remove on release
                     window.setTimeout(() => SceneManager.setActiveScene("mainMenu"), 1000);

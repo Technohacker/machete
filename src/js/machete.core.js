@@ -47,6 +47,29 @@
         },
         querySelectorAll: selector => {
             return window.document.querySelectorAll(selector);
+        },
+        getOffsetPosition(element) {
+            let stagePos = this.stage.getBoundingClientRect();
+            let elemPos = element.getBoundingClientRect();
+
+            let scrollTop = window.scrollY;
+            let scrollLeft = window.scrollX;
+
+            let top = elemPos.top + scrollTop - stagePos.top;
+            let left = elemPos.left + scrollLeft - stagePos.left;
+            let bottom = stagePos.height - (top + elemPos.height);
+            let right = stagePos.width - (left + elemPos.width);
+            let width = elemPos.width;
+            let height = elemPos.height;
+
+            return {
+                top,
+                left,
+                bottom,
+                right,
+                width,
+                height
+            };
         }
     }
 

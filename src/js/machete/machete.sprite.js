@@ -1,48 +1,43 @@
-(function (Machete) {
+(function (window) {
     'use strict';
+    const Machete = window.Machete;
+    const Bodies = window.Matter.Bodies;
+    const Body = window.Matter.Body;
+
     Machete.extend("sprite", {
-        Sprite: function (spriteElement, init, update, act) {
-            let compStyle = window.getComputedStyle(spriteElement),
-                coords = {
-                    x: parseInt(compStyle.left, 10),
-                    y: parseInt(compStyle.top, 10)
-                };
-            this.prevCoords = coords;
-            this.currCoords = coords;
+        Sprite: function (spriteElement, init, update, act, physics) {
 
             this.spriteInit = init;
             this.spriteUpdate = update;
             this.spriteAct = act;
 
-            this.moveBy = (delta) => {
-                let coords = {
-                    x: this.currCoords.x + delta.x,
-                    y: this.currCoords.y + delta.y
-                };
-                this.setPos(coords);
-            };
-            this.setPos = (coords) => {
-                this.currCoords = {
-                    x: coords.x,
-                    y: coords.y
-                };
-            };
+            this.rigidBody = Bodies.rectangle(
+                physics.x,
+                physics.y,
+                physics.width,
+                physics.height,
+                physics.other
+            );
+
+            Body.set(this.rigidBody, "element", spriteElement);
+            Body.set(this.rigidBody, "width", physics.width);
+            Body.set(this.rigidBody, "height", physics.height);
+
+
+            this.applyForce = (force) => {
+                Body.applyForce(this.rigidBody, {
+                    x: this.rigidBody.position.x,
+                    y: this.rigidBody.position.y
+                }, force);
+            }
+
             this.update = (delta) => {
                 this.spriteUpdate(delta);
-                this.setPos(this.currCoords);
             };
             this.act = () => {
-                this.element.style.left = this.currCoords.x + "px";
-                this.element.style.top = this.currCoords.y + "px";
                 this.spriteAct();
             };
-
-            this.element = spriteElement;
-            this.element.classList.add("sprite");
-            this.element.classList.add("gpu-accel");
-            this.element.style = compStyle;
-
             this.spriteInit();
         },
     });
-}(window.Machete));
+}(window));

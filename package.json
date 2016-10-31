@@ -27,6 +27,7 @@
   "dependencies": {
     "box2d.js": "^1.0.0",
     "concurrently": "^3.1.0",
+    "normalizecss": "^3.0.0",
     "window.requestanimationframe": "^1.0.0"
   },
   "devDependencies": {
