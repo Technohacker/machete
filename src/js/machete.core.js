@@ -55,8 +55,8 @@
             let scrollTop = window.scrollY;
             let scrollLeft = window.scrollX;
 
-            let top = elemPos.top + scrollTop - stagePos.top;
-            let left = elemPos.left + scrollLeft - stagePos.left;
+            let top = (elemPos.top + scrollTop - stagePos.top) + (elemPos.height / 2);
+            let left = (elemPos.left + scrollLeft - stagePos.left) + (elemPos.width / 2);
             let bottom = stagePos.height - (top + elemPos.height);
             let right = stagePos.width - (left + elemPos.width);
             let width = elemPos.width;
