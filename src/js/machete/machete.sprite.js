@@ -16,7 +16,7 @@
                 physics.y,
                 physics.width,
                 physics.height,
-                physics.other
+                physics.options
             );
 
             Body.set(this.rigidBody, "element", spriteElement);
