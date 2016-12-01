@@ -16,3 +16,7 @@ This offers a few benefits:
 This framework is **highly pre-alpha**. The API can change at any time. It is not recommended for use as yet.
 
 Pull requests are always welcome! :smile:
+
+## TODO:
+1. Offer two versions, raw ES6 with lesser browser bupport
+2. Transpiled to ES5 version for older browsers
