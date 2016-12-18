@@ -156,14 +156,49 @@ h6
     text-align: center;
 }
 
-#wall1
+#ground,
+#wall-left,
+#wall-right,
+#ceiling
 {
     position: absolute;
-    bottom: 0vh;
+
+    outline: 1px dashed red;
+    background: rgba(255, 0, 0, .5);
+}
+
+#ground
+{
+    bottom: 0;
     left: 0;
 
     width: 100vw;
     height: 50px;
+}
 
-    background-color: cyan;
+#wall-left
+{
+    bottom: 0;
+    left: 0;
+
+    width: 50px;
+    height: 100vh;
+}
+
+#wall-right
+{
+    right: 0;
+    bottom: 0;
+
+    width: 50px;
+    height: 100vh;
+}
+
+#ceiling
+{
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 50px;
 }
