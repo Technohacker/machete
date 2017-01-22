@@ -1,6 +1,8 @@
 # Machete
 The Machete HTML DOM Game Framework
 
+[![NPM](https://nodei.co/npm/machete-framework.png)](https://npmjs.org/package/machete-framework)
+
 Built by [Technohacker](https://github.com/Technohacker)
 
 ## Concept
