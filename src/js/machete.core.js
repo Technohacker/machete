@@ -36,18 +36,22 @@
                 throw Error("Stage does not have the 'machete-stage' class!");
             }
             this.stage = stageElement;
+            this.stage.requestFullscreen = this.stage.requestFullscreen ||
+                this.stage.webkitRequestFullscreen ||
+                this.stage.mozRequestFullScreen ||
+                this.stage.msRequestFullscreen ||
+                function () {
+                    throw Error("Browser not supported!")
+                };
+
             return new Game(stageElement, gameObj);
         },
         extend(pluginName, plugin) {
             Machete[pluginName] = plugin;
             return this;
         },
-        querySelector: selector => {
-            return window.document.querySelector(selector);
-        },
-        querySelectorAll: selector => {
-            return window.document.querySelectorAll(selector);
-        },
+        querySelector: selector => window.document.querySelector(selector),
+        querySelectorAll: selector => window.document.querySelectorAll(selector),
         getOffsetPosition(element) {
             let stagePos = this.stage.getBoundingClientRect();
             let elemPos = element.getBoundingClientRect();
@@ -70,6 +74,17 @@
                 width,
                 height
             };
+        },
+        fullScreenStage() {
+            if (!(document.fullscreenElement || document.webkitFullscreenElement || document.mozmozFullScreenElement || document.msFullscreenElement)) {
+                this.stage.requestFullscreen();
+            }
+        },
+        exitFullscreen: () => {
+            return (document.exitFullscreen ||
+                document.webkitExitFullscreen ||
+                document.mozCancelFullScreen ||
+                document.msExitFullscreen).call(document);
         }
     }
 
