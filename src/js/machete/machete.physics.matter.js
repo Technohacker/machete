@@ -6,7 +6,7 @@
 
     Machete.extend("matterjs", {
         world(engine) {
-            let bodies = window.Matter.Composite.allBodies(engine.world);
+            let bodies = Composite.allBodies(engine.world);
 
             for (var body of bodies) {
                 let element = body.element;
