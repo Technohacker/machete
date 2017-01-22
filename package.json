@@ -1,5 +1,5 @@
 {
-    "name": "machete",
+    "name": "machete-framework",
     "version": "0.0.1",
     "description": "The Machete HTML DOM Game Framework",
     "main": "src/machete.js",
