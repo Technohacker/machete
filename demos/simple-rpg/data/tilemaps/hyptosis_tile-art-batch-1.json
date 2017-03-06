@@ -1,0 +1,13 @@
+{
+    "columns": 30,
+    "image": "..\/..\/images\/tilemaps\/hyptosis_tile-art-batch-1.png",
+    "imageheight": 960,
+    "imagewidth": 960,
+    "margin": 0,
+    "name": "hyptosis_tile-art-batch-1",
+    "spacing": 0,
+    "tilecount": 900,
+    "tileheight": 32,
+    "tilewidth": 32,
+    "type": "tileset"
+}

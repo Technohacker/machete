@@ -25,6 +25,7 @@
     },
     "homepage": "https://github.com/Technohacker/machete#readme",
     "dependencies": {
+        "create-stylesheet": "^0.3.0",
         "matter-js": "^0.11.1",
         "normalizecss": "^3.0.0"
     },
