@@ -1,6 +1,6 @@
 import createStylesheet from "create-stylesheet";
 
-export default class Tilemap {
+export class Tilemap {
     static generateTilemapStyles(tilemapResource) {
         return new Promise((resolve, reject) => {
             let {
@@ -11,20 +11,22 @@ export default class Tilemap {
                 imagewidth,
                 imageheight,
                 margin
-            } = this.tilemapResource,
-                tileSelector = `.${name} .tile`,
+            } = tilemapResource.data,
+                tileSelector = `.${name} .t`,
                 styleObject = {
-                    `.${name} .tile`: {
+                    [tileSelector]: {
                         width: tilewidth,
                         height: tileheight,
-                        backgroundImage: `url("${image}")"`
+                        backgroundImage: `url("${image}")`,
+                        display: "table-cell"
                     }
                 };
 
-            for (var row = 0; row < imageheight; row += 1) {
-                for (var col = 0; col < imagewidth; col += 1) {
-                    this.styleObject[`${tileSelector}.${row + col}`] = {
-                        backgroundPosition: `${row * tileheight - margin}px ${col * tilewidth}px`
+            let i = 0;
+            for (var row = 0; row < (imageheight / tileheight); row += 1) {
+                for (var col = 0; col < (imagewidth / tilewidth); col += 1, i += 1) {
+                    styleObject[`${tileSelector}-${i}`] = {
+                        backgroundPosition: `${-(col * tileheight)}px ${-(row * tilewidth)}px`
                     };
                 }
             }
