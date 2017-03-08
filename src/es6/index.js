@@ -1,19 +1,36 @@
-import Machete from "./Machete";
-import Game from "./Game";
+import {
+    Machete
+} from "./Machete.js";
+import {
+    Game
+} from "./Game.js";
 
-import MusicSystem from "./audio/MusicSystem";
-import SoundFX from "./audio/SoundFX";
-import KeyboardManager from "./input/keyboard/KeyboardManager";
-import ResourceManager from "./resources/ResourceManager";
-import SceneManager from "./scenes/SceneManager";
-import Tilemap from "./tilemap/Tilemap";
+import {
+    MusicSystem
+} from "./audio/MusicSystem.js";
+import {
+    SoundFX
+} from "./audio/SoundFX.js";
+import {
+    KeyboardManager
+} from "./input/keyboard/KeyboardManager.js";
+import {
+    ResourceManager
+} from "./resources/ResourceManager.js";
+import {
+    SceneManager
+} from "./scenes/SceneManager.js";
+import {
+    Tilemap
+} from "./tilemap/Tilemap.js";
 
-export Machete;
-export Game;
-
-export MusicSystem;
-export SoundFX;
-export KeyboardManager;
-export ResourceManager;
-export SceneManager;
-export Tilemap;
+export {
+    Machete,
+    Game,
+    MusicSystem,
+    SoundFX,
+    KeyboardManager,
+    ResourceManager,
+    SceneManager,
+    Tilemap
+};
