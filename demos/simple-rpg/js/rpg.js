@@ -3,9 +3,13 @@ import {
     SceneManager,
     ResourceManager,
     Tilemap
-} from "../../src/es6";
+} from "machete/index.js";
 
 export class SimpleRPG extends Game {
+    constructor() {
+        super(document.querySelector(".machete-stage"));
+    }
+
     init() {
         this.resourceManager = new ResourceManager([{
             type: "tilemap",
@@ -19,10 +23,10 @@ export class SimpleRPG extends Game {
             update() {},
             draw() {}
         });
+        this.sceneManager.setActiveScene("loading");
         this.resourceManager.start().then(() => {
             Tilemap.generateTilemapStyles(this.resourceManager.getAsset("tilemap1")).then(tilemapStyle => {
-                document.body.appendNode(tilemapStyle);
-
+                document.body.appendChild(tilemapStyle);
             });
         });
     }
@@ -35,3 +39,6 @@ export class SimpleRPG extends Game {
         this.sceneManager.drawScene();
     }
 }
+
+window.game = new SimpleRPG();
+console.log("Ready!");
