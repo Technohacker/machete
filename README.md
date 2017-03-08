@@ -17,6 +17,15 @@ This offers a few benefits:
 ## Progress
 I can consider the framework as quite usable but I need others to try out the framework for understanding the API usability. So I mark it **alpha**.
 
+I am currently porting my existing code to ES2015 (ES6) classes with SystemJS as a module loader. I prefer using the ES6 code directly over compiling to ES5 as modern browsers have much better support for ES6 as compared to transpilers.
+
+Currently tested browsers:
+
+* Firefox Aurora 53.0a2
+* Chromium 56.0.2924.87-1
+
+I don't plan to support any version of IE currently. Tread carefully if you do plan to support IE for your game.
+
 Pull requests are always welcome! :smile:
 
 ## TODO:
