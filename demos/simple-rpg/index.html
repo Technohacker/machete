@@ -8,5 +8,28 @@
         <div class="machete-stage">
             <div id="loading" class="scene"></div>
         </div>
+        <script src="../../node_modules/systemjs/dist/system.js" charset="utf-8"></script>
+        <script>
+            SystemJS.config({
+                paths: {
+                    machete: "../../src/es6",
+                    "npm:": "../../node_modules/"
+                },
+                map: {
+                    "plugin-babel": "npm:systemjs-plugin-babel/plugin-babel.js",
+                    "systemjs-babel-build": "npm:systemjs-plugin-babel/systemjs-babel-browser.js",
+                    "create-stylesheet": "npm:create-stylesheet/index.js"
+                },
+                meta: {
+                    "*.js": {
+                        babelOptions: {
+                            es2015: false
+                        }
+                    }
+                },
+                transpiler: "plugin-babel"
+            });
+            System.import ("js/rpg.js");
+        </script>
     </body>
 </html>
