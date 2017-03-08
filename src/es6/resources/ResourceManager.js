@@ -1,4 +1,4 @@
-export default class ResourceManager {
+export class ResourceManager {
     constructor(resourceList) {
         this.resourceList = resourceList;
     }
@@ -6,8 +6,8 @@ export default class ResourceManager {
     start() {
         return new Promise((resolve, reject) => {
             let loadedCount = 0;
-            let onLoadHandler = (resolve, reject) => {
-                this.assetCache[resourceInfo.name] = load;
+            let onLoadHandler = (resourceInfo, load) => {
+                this.resourceList[resourceInfo.name] = load;
                 loadedCount += 1;
                 if (loadedCount === this.resourceList.length) {
                     resolve();
@@ -18,13 +18,13 @@ export default class ResourceManager {
                 switch (resourceInfo.type) {
                 case "image":
                     var load = new Image();
-                    load.onLoad = () => onLoadHandler(resolve, reject);
+                    load.onLoad = () => onLoadHandler(resourceInfo, load);
                     load.src = resourceInfo.href;
                     break;
                 case "audio":
                     // TODO: Multiple format support
                     var load = document.createElement("audio");
-                    load.oncanplaythrough = () => onLoadHandler(resolve, reject);
+                    load.oncanplaythrough = () => onLoadHandler(resourceInfo, load);
                     load.src = resourceInfo.href;
                     break;
                 case "tilemap":
@@ -38,10 +38,13 @@ export default class ResourceManager {
                         var img = new Image();
                         img.onload = () => {
                             load.image = img;
-                            onLoadHandler(load);
+                            onLoadHandler(resourceInfo, load);
                         };
                         img.src = load.data.image;
                     });
+                    xhr.open("GET", resourceInfo.href);
+                    xhr.send();
+                    break;
                 default:
                     reject(`Unknown Asset Type. Name: ${resourceInfo.name} Type: ${resourceInfo.type}`);
                 }
