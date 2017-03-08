@@ -1,6 +1,13 @@
 export class Game {
+    constructor(stageElement) {
+        if (!stageElement) {
+            throw Error("No stage element specified!");
+        }
+        this.stageElement = stageElement;
+    }
+
     frame(currentTime) {
-        this.requestID = window.requestAnimationFrame(this.frame);
+        this.requestID = window.requestAnimationFrame(currentTime => this.frame(currentTime));
 
         if (!this.prevTime) {
             this.prevTime = currentTime;
@@ -15,7 +22,7 @@ export class Game {
 
     start() {
         this.init();
-        window.requestAnimationFrame(this.frame);
+        window.requestAnimationFrame(currentTime => this.frame(currentTime));
     }
 
     stop() {
