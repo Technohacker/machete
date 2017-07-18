@@ -1,32 +1,29 @@
-export default class KeyboardManager {
-    constructor(keyEventHandlers) {
-        this.keyEventHandlers = keyEventHandlers;
-
+export class KeyboardManager {
+    constructor() {
+        this.keyEventHandlers = {};
         document.addEventListener("keydown", event => {
             event.preventDefault();
-
-            let keyObj = Machete.inputManager.keyboard.keyboardEvents[event.code];
-            if (keyObj) {
-                if (!keyObj.activated) {
-                    keyObj.activated = true;
-                    keyObj.listeners.keyDown.forEach(keyDown => keyDown(event));
-                }
-                return true;
+            if (this.keyEventHandlers[event.code]) {
+                this.keyEventHandlers[event.code].keyDown.forEach(callback => callback(event));
             }
             return false;
         });
         document.addEventListener("keyup", event => {
-            event.preventDefault();
-
-            let keyObj = Machete.inputManager.keyboard.keyboardEvents[event.code];
-            if (keyObj) {
-                if (keyObj.activated) {
-                    keyObj.activated = false;
-                    keyObj.listeners.keyDown.forEach(keyUp => keyUp(event));
-                }
-                return true;
+            if (this.keyEventHandlers[event.code]) {
+                this.keyEventHandlers[event.code].keyUp.forEach(callback => callback(event));
             }
             return false;
         });
+    }
+
+    registerListener(key) {
+        if (!this.keyEventHandlers[key.code]) {
+            this.keyEventHandlers[key.code] = {
+                keyDown: [],
+                keyUp: []
+            }
+        }
+        this.keyEventHandlers[key.code].keyDown.push(key.down);
+        this.keyEventHandlers[key.code].keyUp.push(key.up);
     }
 }
