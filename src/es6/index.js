@@ -21,6 +21,9 @@ import {
     SceneManager
 } from "./scenes/SceneManager.js";
 import {
+    Sprite
+} from "./sprite/Sprite.js";
+import {
     Tilemap
 } from "./tilemap/Tilemap.js";
 
@@ -32,5 +35,6 @@ export {
     KeyboardManager,
     ResourceManager,
     SceneManager,
+    Sprite,
     Tilemap
 };
