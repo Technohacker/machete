@@ -1,0 +1,74 @@
+.machete-stage
+{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+}
+
+#play
+{
+    font-size: 2em;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 200px;
+    height: 50px;
+
+    text-transform: uppercase;
+
+    color: white;
+    border: 5px dashed white;
+    background: black;
+
+    z-index: 10;
+    margin-top: -25px;
+    margin-left: -100px;
+}
+
+.separator
+{
+    position: absolute;
+    top: 0;
+
+    height: 100vh;
+    margin-left: 50%;
+
+    outline: 2px dashed white;
+}
+
+.paddle
+{
+    top: 50%;
+
+    width: 20px;
+    height: 150px;
+    margin-top: -75px;
+
+    background-color: white;
+}
+
+#player
+{
+    left: 70px;
+}
+
+#ai
+{
+    right: 70px;
+}
+
+.ball
+{
+    top: 50%;
+    left: 50%;
+
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -25px;
+
+    background-color: white;
+}
