@@ -1,7 +1,7 @@
 export class Game {
     constructor(stageElement) {
         if (!stageElement) {
-            throw Error("No stage element specified!");
+            throw "No stage element specified!";
         }
         this.stageElement = stageElement;
     }
