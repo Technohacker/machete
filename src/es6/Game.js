@@ -21,7 +21,6 @@ export class Game {
     }
 
     start() {
-        this.init();
         window.requestAnimationFrame(currentTime => this.frame(currentTime));
     }
 

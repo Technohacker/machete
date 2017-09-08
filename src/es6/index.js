@@ -24,6 +24,9 @@ import {
     Sprite
 } from "./sprite/Sprite.js";
 import {
+    RigidBodySprite
+} from "./sprite/RigidBodySprite.js";
+import {
     Tilemap
 } from "./tilemap/Tilemap.js";
 
@@ -35,6 +38,7 @@ export {
     KeyboardManager,
     ResourceManager,
     SceneManager,
+    RigidBodySprite,
     Sprite,
     Tilemap
 };
