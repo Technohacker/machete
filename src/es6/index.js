@@ -12,8 +12,8 @@ import {
     SoundFX
 } from "./audio/SoundFX.js";
 import {
-    KeyboardManager
-} from "./input/keyboard/KeyboardManager.js";
+    KeyboardInput
+} from "./input/keyboard/KeyboardInput.js";
 import {
     ResourceManager
 } from "./resources/ResourceManager.js";
@@ -35,7 +35,7 @@ export {
     Game,
     MusicSystem,
     SoundFX,
-    KeyboardManager,
+    KeyboardInput,
     ResourceManager,
     SceneManager,
     RigidBodySprite,

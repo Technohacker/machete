@@ -1,4 +1,4 @@
-export class KeyboardManager {
+export class KeyboardInput {
     constructor() {
         this.keyEventHandlers = {};
         document.addEventListener("keydown", event => {

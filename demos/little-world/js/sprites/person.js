@@ -4,25 +4,9 @@ import {
 } from "machete/index.js";
 
 export class Person extends RigidBodySprite {
-    constructor(keyboardManager) {
+    constructor(keyboardInput) {
         super(Machete.getDOMElement(".person"));
-        keyboardManager.registerListener({
-            code: "ArrowUp",
-            down: event => this.applyForce({
-                x: 0,
-                y: -0.1
-            }),
-            up: event => {}
-        });
-        keyboardManager.registerListener({
-            code: "ArrowDown",
-            down: event => this.applyForce({
-                x: 0,
-                y: 0.1
-            }),
-            up: event => {}
-        });
-        keyboardManager.registerListener({
+        keyboardInput.registerListener({
             code: "ArrowLeft",
             down: event => this.applyForce({
                 x: -0.1,
@@ -30,7 +14,7 @@ export class Person extends RigidBodySprite {
             }),
             up: event => {}
         });
-        keyboardManager.registerListener({
+        keyboardInput.registerListener({
             code: "ArrowRight",
             down: event => this.applyForce({
                 x: 0.1,
