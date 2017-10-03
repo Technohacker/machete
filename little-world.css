@@ -1,0 +1,34 @@
+body
+{
+    overflow: hidden;
+}
+
+.machete-stage
+{
+    width: 100vw;
+    height: 100vh;
+
+    background: black;
+}
+
+.floor
+{
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 30px;
+
+    background: grey;
+}
+
+.person
+{
+    bottom: 60px;
+    left: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    background: red;
+}

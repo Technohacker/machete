@@ -2,89 +2,39 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Machete Playground</title>
-        <link rel="stylesheet" href="css/normalize.css"/>
-        <link rel="stylesheet" href="css/machete.css" media="screen"/>
-        <link rel="stylesheet" href="css/playground-style.css" media="screen"/>
-        <meta name="viewport" content="width=device-width maximum-scale=1"/>
+        <title>Little World</title>
+        <link rel="stylesheet" href="node_modules/normalizecss/normalize.css"/>
+        <link rel="stylesheet" href="machete.css"/>
+        <link rel="stylesheet" href="little-world.css"/>
     </head>
     <body>
         <div class="machete-stage">
-            <div id="loading" class="scene">
-                <div class="loader"></div>
-            </div>
-            <div id="main-menu" class="scene">
-                <div class="background">
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                    <div class="blue tile"></div>
-                </div>
-                <h1>Playground!</h1>
-                <button id="play" type="button" name="play">PLAY</button>
-            </div>
-            <div id="level1" class="scene">
-                <div class="background">
-                    <h3>Move using the left and right arrow keys</h3>
-                    <h3>Jump using space</h3>
-                </div>
-                <div id="player"></div>
-                <div id="ground"></div>
-                <div id="wall-left"></div>
-                <div id="wall-right"></div>
-                <div id="ceiling"></div>
-            </div>
+            <div class="person sprite" restitution="0.8" friction="0.1"></div>
+            <div class="floor sprite" name="Floor" restitution="0" friction="0.1" static="true"></div>
         </div>
-        <!-- Libraries -->
-        <script src="libs/matter.min.js" charset="utf-8"></script>
-        <script src="libs/fpsmeter.min.js" charset="utf-8"></script>
-        <script src="libs/velocity.min.js" charset="utf-8"></script>
-        <script src="libs/machete.js" charset="utf-8"></script>
-        <!-- Scenes -->
-        <script src="js/mainMenu.js" charset="utf-8"></script>
-        <script src="js/level1.js" charset="utf-8"></script>
-        <!-- Orchestrator -->
-        <script src="js/playground.js" charset="utf-8"></script>
+        <script src="node_modules/systemjs/dist/system.js" charset="utf-8"></script>
+        <script src="node_modules/matter-js/build/matter-dev.js" charset="utf-8"></script>
+        <script>
+            SystemJS.config({
+                paths: {
+                    machete: "machete",
+                    "npm:": "node_modules/"
+                },
+                map: {
+                    "plugin-babel": "npm:systemjs-plugin-babel/plugin-babel.js",
+                    "systemjs-babel-build": "npm:systemjs-plugin-babel/systemjs-babel-browser.js",
+                    "create-stylesheet": "npm:create-stylesheet/index.js"
+                },
+                meta: {
+                    "*.js": {
+                        babelOptions: {
+                            es2015: false
+                        }
+                    }
+                },
+                transpiler: "plugin-babel"
+            });
+            System.import ("js/little-world.js");
+        </script>
     </body>
 </html>
