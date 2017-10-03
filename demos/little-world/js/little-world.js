@@ -1,6 +1,7 @@
 import {
     Machete,
     KeyboardInput,
+    MouseInput,
     RigidBodySprite,
     Game
 } from "machete/index.js";
@@ -21,13 +22,21 @@ export class LittleWorld extends Game {
                 }
             })
         });
+
         this.keyboard = new KeyboardInput();
+        this.mouse = new MouseInput();
+
         this.sprites = [
             new Person(this.keyboard),
             new RigidBodySprite(Machete.getDOMElement(".floor"))
         ];
 
+        this.mouse.registerListener({
+            element: this.sprites[0].element,
+            mousedown: event => this.sprites[0].applyForce({
                 x: 0,
+                y: -0.1
+            })
         });
 
         Matter.World.add(this.engine.world, (() => {
