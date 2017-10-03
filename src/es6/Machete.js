@@ -15,6 +15,7 @@ export class Machete {
         element.style.top = style.top;
         element.style.width = style.width;
         element.style.height = style.height;
+        element.style.transform = style.transform;
         return element;
     }
 }

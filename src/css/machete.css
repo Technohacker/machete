@@ -34,6 +34,11 @@
     position: absolute;
 }
 
+.circle
+{
+    border-radius: 50%;
+}
+
 .gpu-accel
 {
     -webkit-transform: translateZ(0) translate3d(0, 0, 0);

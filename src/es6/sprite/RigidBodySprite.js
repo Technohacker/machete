@@ -12,16 +12,30 @@ export class RigidBodySprite extends Sprite {
         for (let attribute of spriteElement.attributes) {
             attribs[attribute.name] = attribute.value;
         }
-        this.rigidBody = Matter.Bodies.rectangle(
-            (this.coords.x + (this.dimensions.width / 2)),
-            (this.coords.y + (this.dimensions.height / 2)),
-            this.dimensions.width,
-            this.dimensions.height, {
-                label: attribs.name,
-                restitution: parseFloat(attribs.restitution),
-                isStatic: !!attribs.static
-            }
-        );
+
+        let options = {
+            label: attribs.name,
+            restitution: (parseFloat(attribs.restitution) || 0),
+            isStatic: !!attribs.static,
+            friction: parseFloat(attribs.friction),
+            angle: RigidBodySprite.getAngle(spriteElement.style.transform)
+        };
+
+        if (spriteElement.classList.contains("circle")) {
+            // NOTE: I assume circular objects only. No elliptical objects
+            this.rigidBody = Matter.Bodies.circle(
+                (this.coords.x + (this.dimensions.width / 2)),
+                (this.coords.y + (this.dimensions.height / 2)),
+                (this.dimensions.width / 2), options
+            );
+        } else {
+            this.rigidBody = Matter.Bodies.rectangle(
+                (this.coords.x + (this.dimensions.width / 2)),
+                (this.coords.y + (this.dimensions.height / 2)),
+                this.dimensions.width,
+                this.dimensions.height, options
+            );
+        }
     }
 
     applyForce(force) {
@@ -39,5 +53,18 @@ export class RigidBodySprite extends Sprite {
         this.element.style.left = (this.rigidBody.position.x - (this.dimensions.width / 2)) + "px";
         this.element.style.top = (this.rigidBody.position.y - (this.dimensions.height / 2)) + "px";
         this.element.style.transform = `rotate(${this.rigidBody.angle}rad)`;
+    }
+
+    static getAngle(transform) {
+        if (transform === "none") {
+            return 0;
+        }
+        // Taken from https://css-tricks.com/get-value-of-css-rotation-through-javascript/
+        let values = transform.split('(')[1].split(')')[0].split(','),
+            a = values[0],
+            b = values[1],
+            scale = Math.sqrt(a * a + b * b);
+
+        return Math.atan2(b, a);
     }
 }
