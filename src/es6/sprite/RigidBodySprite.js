@@ -39,6 +39,17 @@ export class RigidBodySprite extends Sprite {
         this.world = world;
     }
 
+    setPosition(coords) {
+        Matter.Body.setPosition(this.rigidBody, {
+            x: coords.x + (this.dimensions.width / 2),
+            y: coords.y + (this.dimensions.height / 2)
+        });
+    }
+
+    setAngle(angle) {
+        Matter.Body.setAngle(this.rigidBody, angle);
+    }
+
     applyForce(force) {
         Matter.Body.applyForce(this.rigidBody, {
             x: this.rigidBody.position.x,
