@@ -14,6 +14,10 @@ export class Sprite {
         };
     }
 
+    setPosition(coords) {
+        this.coords = coords;
+    }
+
     moveBy(directions) {
         this.coords = {
             x: this.coords.x + directions.x,
@@ -32,5 +36,9 @@ export class Sprite {
     drawSprite() {
         this.element.style.left = this.coords.x + "px";
         this.element.style.top = this.coords.y + "px";
+    }
+
+    removeSprite() {
+        this.element.parentNode.removeChild(this.element);
     }
 }

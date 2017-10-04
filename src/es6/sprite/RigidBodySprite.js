@@ -3,7 +3,7 @@ import {
 } from "./Sprite.js";
 
 export class RigidBodySprite extends Sprite {
-    constructor(spriteElement) {
+    constructor(spriteElement, world) {
         if (!window.Matter) {
             throw Error("Matter.js is not included!");
         }
@@ -36,6 +36,7 @@ export class RigidBodySprite extends Sprite {
                 this.dimensions.height, options
             );
         }
+        this.world = world;
     }
 
     applyForce(force) {
@@ -53,6 +54,11 @@ export class RigidBodySprite extends Sprite {
         this.element.style.left = (this.rigidBody.position.x - (this.dimensions.width / 2)) + "px";
         this.element.style.top = (this.rigidBody.position.y - (this.dimensions.height / 2)) + "px";
         this.element.style.transform = `rotate(${this.rigidBody.angle}rad)`;
+    }
+
+    removeSprite() {
+        Matter.World.remove(this.world, this.rigidBody);
+        super.removeSprite();
     }
 
     static getAngle(transform) {
