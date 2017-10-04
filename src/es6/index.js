@@ -15,8 +15,8 @@ import {
     KeyboardInput
 } from "./input/keyboard/KeyboardInput.js";
 import {
-    MouseInput
-} from "./input/pointer/MouseInput.js";
+    PointerInput
+} from "./input/pointer/PointerInput.js";
 import {
     ResourceManager
 } from "./resources/ResourceManager.js";
@@ -39,7 +39,7 @@ export {
     MusicSystem,
     SoundFX,
     KeyboardInput,
-    MouseInput,
+    PointerInput,
     ResourceManager,
     SceneManager,
     RigidBodySprite,
