@@ -9,8 +9,11 @@ export class Machete {
      * @return Element              Selected element
      */
     static getDOMElement(selector) {
-        let element = document.querySelector(selector),
-            style = window.getComputedStyle(element);
+        return Machete.resetStyles(document.querySelector(selector));
+    }
+
+    static resetStyles(element) {
+        let style = window.getComputedStyle(element);
         element.style.left = style.left;
         element.style.top = style.top;
         element.style.width = style.width;
