@@ -14,8 +14,11 @@ export class Game {
         }
         let delta = currentTime - this.prevTime;
 
-        this.update(delta);
-        this.draw(delta);
+        // Prevent insanely high delta values
+        if (delta < 160) {
+            this.update(delta);
+            this.draw(delta);
+        }
 
         this.prevTime = currentTime;
     }
