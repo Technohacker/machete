@@ -12,7 +12,8 @@ import {
 
 export class LittleWorld extends Game {
     constructor() {
-        super(Machete.getDOMElement(".machete-stage"));
+        let stage = Machete.getDOMElement(".machete-stage");
+        super(stage);
         this.engine = Matter.Engine.create({
             world: Matter.World.create({
                 gravity: {
@@ -28,7 +29,10 @@ export class LittleWorld extends Game {
 
         this.sprites = [
             new Person(this.keyboard),
-            new RigidBodySprite(Machete.getDOMElement(".floor"))
+            new RigidBodySprite(Machete.getDOMElement(".floor")),
+            new RigidBodySprite(Machete.getDOMElement("#wall1")),
+            new RigidBodySprite(Machete.getDOMElement("#wall2")),
+            new RigidBodySprite(Machete.getDOMElement("#wall3"))
         ];
 
         this.pointer.registerListener({
