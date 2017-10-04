@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cannon Launch</title>
+        <link rel="stylesheet" href="../../node_modules/normalizecss/normalize.css"/>
+        <link rel="stylesheet" href="../../src/css/machete.css"/>
+        <link rel="stylesheet" href="cannon-launch.css"/>
+    </head>
+    <body>
+        <div class="machete-stage">
+            <div class="controls">
+                <label for="angle">
+                    Angle
+                    <input type="range" name="angle" value="45" min="0" max="90">
+                </label>
+            </div>
+            <h1 id="loading">Loading...</h1>
+            <div class="bounds">
+                <div id="wall1" class="sprite" static="true"></div>
+                <div id="wall2" class="sprite" static="true"></div>
+                <div id="wall3" class="sprite" static="true"></div>
+            </div>
+            <div class="cannon sprite" restitution="0" friction="1" static="true"></div>
+            <div class="floor sprite" name="Floor" restitution="0" friction="0.1" static="true"></div>
+        </div>
+        <script src="../../node_modules/systemjs/dist/system.js" charset="utf-8"></script>
+        <script src="../../node_modules/matter-js/build/matter-dev.js" charset="utf-8"></script>
+        <script>
+            SystemJS.config({
+                paths: {
+                    machete: "../../src/es6",
+                    "npm:": "../../node_modules/"
+                },
+                map: {
+                    "plugin-babel": "npm:systemjs-plugin-babel/plugin-babel.js",
+                    "systemjs-babel-build": "npm:systemjs-plugin-babel/systemjs-babel-browser.js",
+                    "create-stylesheet": "npm:create-stylesheet/index.js"
+                },
+                meta: {
+                    "*.js": {
+                        babelOptions: {
+                            es2015: false
+                        }
+                    }
+                },
+                transpiler: "plugin-babel"
+            });
+            System.import ("js/cannon-launch.js");
+        </script>
+    </body>
+</html>
